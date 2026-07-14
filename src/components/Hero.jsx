@@ -142,7 +142,7 @@ export default function Hero() {
               className="group glass relative flex items-center gap-2 rounded-full px-8 py-3.5 font-semibold text-slate-800 transition-all hover:border-indigo-500/40 dark:text-slate-100"
             >
               <FaDownload className="transition-transform group-hover:-translate-y-0.5" />
-              Download CV
+              Download Resume
             </motion.a>
           </motion.div>
 
@@ -214,15 +214,7 @@ export default function Hero() {
                 <div className="relative h-full w-full rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-cyan-500 p-1 shadow-2xl">
                   <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-950">
                     {/* Code pattern inside */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center font-mono text-xs text-white/80">
-                        <div className="mb-2 text-cyan-400">{"{ "}</div>
-                        <div className="pl-4 text-indigo-300">"stack": <span className="text-emerald-400">"MERN"</span>,</div>
-                        <div className="pl-4 text-indigo-300">"passion": <span className="text-pink-400">"∞"</span>,</div>
-                        <div className="pl-4 text-indigo-300">"status": <span className="text-amber-400">"building"</span></div>
-                        <div className="mt-2 text-cyan-400">{"}"}</div>
-                      </div>
-                    </div>
+                    <img src="/images/avatar.png" alt="avatar" />
                     {/* Shiny overlay */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20" />
                   </div>

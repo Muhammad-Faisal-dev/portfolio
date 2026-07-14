@@ -65,7 +65,7 @@ export default function Navbar() {
             className="flex items-center gap-2 font-display text-xl font-bold"
           >
             <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400">
-              <span className="relative z-10 text-sm font-bold text-white">AK</span>
+              <span className="relative z-10 text-sm font-bold text-white">MF</span>
               <div className="absolute inset-0 animate-pulse-glow rounded-lg" />
             </div>
             <span className="text-gradient hidden sm:inline">Developer</span>

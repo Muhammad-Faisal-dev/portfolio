@@ -173,7 +173,7 @@ export default function Contact() {
                     Available for hire
                   </div>
                   <div className="mt-1 text-sm text-white/80">
-                    Open to full-time roles & freelance projects
+                    Open to full-time roles
                   </div>
                 </div>
               </div>
