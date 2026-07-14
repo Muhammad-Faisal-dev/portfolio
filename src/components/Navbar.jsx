@@ -43,7 +43,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         scrolled ? "py-3" : "py-5"
       }`}
     >
@@ -65,7 +65,9 @@ export default function Navbar() {
             className="flex items-center gap-2 font-display text-xl font-bold"
           >
             <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400">
-              <span className="relative z-10 text-sm font-bold text-white">MF</span>
+              <span className="relative z-10 text-sm font-bold text-white">
+                AK
+              </span>
               <div className="absolute inset-0 animate-pulse-glow rounded-lg" />
             </div>
             <span className="text-gradient hidden sm:inline">Developer</span>
@@ -76,6 +78,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <motion.button
                 key={link.name}
+                type="button"
                 onClick={() => handleLinkClick(link.href)}
                 whileHover={{ y: -2 }}
                 className={`relative px-4 py-2 font-medium transition-colors ${
@@ -98,6 +101,7 @@ export default function Navbar() {
           {/* Right Side */}
           <div className="flex items-center gap-3">
             <motion.button
+              type="button"
               onClick={toggleTheme}
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
@@ -130,12 +134,17 @@ export default function Navbar() {
             </motion.button>
 
             <motion.button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
               className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 text-slate-700 backdrop-blur-sm md:hidden dark:text-slate-200"
               aria-label="Toggle menu"
             >
-              {isOpen ? <HiX className="h-5 w-5" /> : <HiMenu className="h-5 w-5" />}
+              {isOpen ? (
+                <HiX className="h-5 w-5" />
+              ) : (
+                <HiMenu className="h-5 w-5" />
+              )}
             </motion.button>
           </div>
         </div>
@@ -143,32 +152,45 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20, height: 0 }}
-              animate={{ opacity: 1, y: 0, height: "auto" }}
-              exit={{ opacity: 0, y: -20, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="glass mt-2 overflow-hidden rounded-2xl md:hidden"
-            >
-              <div className="flex flex-col gap-1 p-4">
-                {navLinks.map((link, i) => (
-                  <motion.button
-                    key={link.name}
-                    onClick={() => handleLinkClick(link.href)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className={`rounded-xl px-4 py-3 text-left font-medium transition-colors ${
-                      activeSection === link.href.slice(1)
-                        ? "bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-500 dark:text-indigo-400"
-                        : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
-                    }`}
-                  >
-                    {link.name}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
+            <>
+              <motion.button
+                type="button"
+                aria-label="Close mobile menu"
+                onClick={() => setIsOpen(false)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-[70] bg-slate-950/20 backdrop-blur-[2px] md:hidden"
+              />
+              <motion.div
+                initial={{ opacity: 0, y: -16, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -16, scale: 0.98 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="fixed left-4 right-4 top-[86px] z-[90] overflow-hidden rounded-2xl border border-slate-200/80 bg-white/95 shadow-2xl shadow-indigo-500/15 backdrop-blur-2xl md:hidden dark:border-white/10 dark:bg-slate-950/95 dark:shadow-black/50"
+              >
+                <div className="flex flex-col gap-2 p-3">
+                  {navLinks.map((link, i) => (
+                    <motion.button
+                      key={link.name}
+                      type="button"
+                      onClick={() => handleLinkClick(link.href)}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.04 }}
+                      className={`relative z-10 w-full rounded-xl px-4 py-3 text-left font-medium transition-colors ${
+                        activeSection === link.href.slice(1)
+                          ? "bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-600 dark:text-indigo-300"
+                          : "text-slate-800 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-white/10"
+                      }`}
+                    >
+                      {link.name}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
