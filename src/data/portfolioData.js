@@ -143,7 +143,7 @@ export const stats = [
 export const contactMethods = [
   {
     label: "Email",
-    value: personalInfo.email,
+    value: personalInfo.email.replace("@gmail.com" , ""),
     link: `mailto:${personalInfo.email}`,
     color: "from-indigo-500 to-purple-500",
   },
