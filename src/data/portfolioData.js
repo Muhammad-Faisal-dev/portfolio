@@ -101,18 +101,28 @@ export const projects = [
   //   featured: true,
   //   gradient: "from-orange-500 via-pink-500 to-red-500",
   // },
-  // {
-  //   title: "LMS System",
-  //   subtitle: "Learning Management Platform",
-  //   description:
-  //     "A complete learning management system with student & instructor dashboards, video course streaming, progress tracking, quizzes, certificate generation, and admin controls. Fully functional backend + frontend.",
-  //   tags: ["React", "Node.js", "Express", "MongoDB", "JWT", "REST API"],
-  //   image: "/images/project-lms.jpg",
-  //   github: "#", // Replace with your GitHub repo URL
-  //   live: "#", // Replace with your live demo URL
-  //   featured: false,
-  //   gradient: "from-indigo-500 via-purple-500 to-pink-500",
-  // },
+  {
+    title: "LMS Platform",
+    subtitle: "Full-Stack Learning Management System",
+    description:
+      "A premium full-stack learning management system with student, teacher, and admin dashboards, course management, assignment submissions, grading, database-backed progress tracking, real-time notifications via Socket.IO, analytics, and secure role-based authentication.",
+    tags: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Socket.IO",
+      "Redux Toolkit",
+    ],
+    image: "/images/project-lms.png",
+    github: "https://github.com/Muhammad-Faisal-dev/LMS",
+    live: "https://lms-five-eta-73.vercel.app", // replace after deployment
+    featured: true,
+    gradient: "from-cyan-500 via-violet-500 to-fuchsia-500",
+  },
+
   {
     title: "Fashion Store",
     subtitle: "E-commerce Frontend",
